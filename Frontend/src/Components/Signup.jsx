@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from 'axios'
+import { Card } from "./Card"
 
 export function Signup(){
     const[email,setEmail] = useState("")
