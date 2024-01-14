@@ -5,7 +5,7 @@ import { Signup } from "./Signup";
 
 export function Navbar() {
   return (
-    <>
+    
     <nav>
       <div className="bg-slate-800 w-vw h-20 flex justify-between items-center">
         <div>
@@ -24,9 +24,5 @@ export function Navbar() {
             </ul></div>
       </div>
       </nav>
-      
-      
-      
-      </>
   );
 }

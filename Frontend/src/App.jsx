@@ -5,10 +5,11 @@ import { Signup } from './Components/Signup'
 import { BrowserRouter as Router, Route, Link,Routes } from 'react-router-dom';
 import { UserSignin } from './Components/Signin';
 import { AdminSignin } from './Components/Admin';
+import { ShowCourse } from './Components/ShowCourse';
 
 function App() {
   return (
-    <Router>
+    <>
     
     <nav>
       <div className="bg-slate-800 w-vw h-20 flex justify-between items-center">
@@ -33,8 +34,9 @@ function App() {
         <Route path="/" element={<Card comp={<Signup></Signup>}></Card>}></Route>
         <Route path="/Signin" element={<Card comp={<UserSignin></UserSignin>}></Card>}></Route>
         <Route path="/Admin" element={<Card comp={<AdminSignin></AdminSignin>}></Card>}></Route>
+        <Route path='/ShowCourse' element={<ShowCourse></ShowCourse>}></Route>
       </Routes>
-    </Router>
+   </>
   )
 }
 

@@ -1,6 +1,6 @@
 export function AdminSignin(){
     return <div className="flex flex-col   align-middle">
-        <div className=" mb-[40px] mt-[-40px] text-center font-bold text-3xl">Admin</div>
+        <div className=" mb-[40px] mt-[-40px] text-center font-bold text-3xl text-slate-800">Admin</div>
         <input type="text" placeholder="Username"
         className="w-full p-2 border-slate-600 bg-slate-200 border-b-2 focus:outline-none text-lg"/> <br />
         <input type="password" placeholder="Password"

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from 'axios'
 import { Card } from "./Card"
+import { Link } from "react-router-dom"
 
 export function Signup(){
     const[email,setEmail] = useState("")
@@ -27,16 +28,14 @@ export function Signup(){
         <button 
         className="bg-slate-700 font-semibold text-white  w-24 rounded-3xl 
         py-2 self-center transform hover:scale-105 focus:scale-100  hover:bg-slate-800"
-        onClick={()=>{
-            axios.post("http://localhost:3000/user",{
+        onClick={async()=>{
+             await axios.post("http://localhost:3000/signup",{
                 email,
                 username,
                 password
             })
-                .then((response)=>{
-                    alert("user added")
-                })
+            alert("user added")
                 
-        }}>Submit</button>
+        }}><Link to='/Signin'>Submit</Link></button>
     </div>
 }
