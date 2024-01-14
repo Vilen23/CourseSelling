@@ -34,7 +34,7 @@ app.post("/signup",async (req,res)=>{
     })
 })
 
-app.get("/signinuser", async (req, res) => {
+app.post("/signinuser", async (req, res) => {
     const { username, password } = req.body;
   
     try {
@@ -76,7 +76,7 @@ app.get("/signinuser", async (req, res) => {
         })
     }
   })
-  app.get("/adminlogin",async(req,res)=>{
+  app.post("/adminlogin",async(req,res)=>{
     const username = req.body.username
     const password  = req.body.password
     try {
