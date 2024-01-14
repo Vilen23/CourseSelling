@@ -12,10 +12,19 @@ const AdminSchema = mongoose.Schema({
     password:String
 })
 
+const CourseSchema = mongoose.Schema({
+    title:String,
+    description:String,
+    imglink:String,
+    price:String
+})
+
+const Course = mongoose.model('Course',CourseSchema)
 const Info = mongoose.model('User',Userschema)
 const Admin = mongoose.model('Admin',AdminSchema)
 
 module.exports={
     Info,
-    Admin
+    Admin,
+    Course
 }

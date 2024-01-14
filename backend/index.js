@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const {Info,Admin} = require('./Database')
+const {Info,Admin, Course} = require('./Database')
 const {valid} = require('./Validation')
 const app = express();
 const bodyParser = require('body-parser')
@@ -95,6 +95,25 @@ app.post("/signinuser", async (req, res) => {
     } catch(error){
         console.error('Error found:', error);
         res.status(500)
+    }
+  })
+
+  app.post("/addcourse",async(req,res)=>{
+    try{
+      await Course.create({
+        title:req.body.title,
+        description:req.body.description,
+        imglink:req.body.imglink,
+        price:req.body.price
+      })
+      res.status(200).json({
+        msg:"Course added successfully"
+      })
+    }catch(error){
+      console.error('Error received',error)
+      res.status(404).json({
+        msg:"error is received"
+      })
     }
   })
 
