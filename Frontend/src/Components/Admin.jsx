@@ -1,10 +1,37 @@
+import axios from "axios"
+import { useState } from "react"
+import { Link } from "react-router-dom"
+
 export function AdminSignin(){
+    const [username,setUsername] = useState("")
+    const [password,setPassword] = useState("")
+    const [isAdmin,setIsAdmin] = useState(false)
+
     return <div className="flex flex-col   align-middle">
-        <div className=" mb-[40px] mt-[-40px] text-center font-bold text-3xl text-slate-800">Admin</div>
+        <div className=" mb-[40px] mt-[-40px] text-center font-bold text-3xl text-slate-800">ADMIN</div>
         <input type="text" placeholder="Username"
-        className="w-full p-2 border-slate-600 bg-slate-200 border-b-2 focus:outline-none text-lg"/> <br />
+        className="w-full p-2 border-slate-600 bg-slate-200 border-b-2 focus:outline-none text-lg"
+        onChange={(e)=>{
+            setUsername(e.target.value)
+        }}/> <br />
         <input type="password" placeholder="Password"
-        className="w-full p-2 border-slate-600 bg-slate-200 focus:outline-none border-b-2 text-lg"/> <br />
-        <button className="bg-slate-700 font-semibold text-white  w-24 rounded-3xl py-2 self-center transform hover:scale-105 focus:scale-100  hover:bg-slate-800">Login</button>
+        className="w-full p-2 border-slate-600 bg-slate-200 focus:outline-none border-b-2 text-lg"
+        onChange={(e)=>{
+            setPassword(e.target.value)
+        }}/> <br />
+        <button className="bg-slate-700 font-semibold text-white  w-24 rounded-3xl py-2 self-center transform hover:scale-105 focus:scale-100  hover:bg-slate-800"
+        onClick={async()=>{
+           const response = await axios.post("http://localhost:3000/adminlogin",{
+            username,
+            password
+           }) 
+           if(response.status===200){
+            setIsAdmin(true)
+        
+           }else{
+            console.log("Admin not found")
+           }
+
+        }}>{isAdmin?<Link to="/AdminAddCourse">Login</Link>:'Login'}</button>
     </div>
 }   

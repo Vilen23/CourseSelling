@@ -6,6 +6,7 @@ export function UserSignin(){
     const [password,setPassword] = useState("")
     const [isLoggedIn,setIsLoggedIn]=useState(false)
     return <div className="flex flex-col   align-middle">
+      <div className=" mb-[40px] mt-[-40px] text-center font-bold text-3xl text-slate-800">SIGN IN</div>
         <input type="text" placeholder="Username"
         className="w-full p-2 border-slate-600 bg-slate-200 border-b-2 focus:outline-none text-lg" onChange={(e)=>{
             setUsername(e.target.value)
@@ -17,8 +18,8 @@ export function UserSignin(){
         <button className="bg-slate-700 font-semibold text-white  w-24 rounded-3xl py-2 self-center transform hover:scale-105 focus:scale-100  hover:bg-slate-800"
         onClick={ async()=>{
             const response = await  axios.post("http://localhost:3000/signinuser", {
-                username,
-                password
+                username:username,
+                password:password
               });
               
               if (response.status === 200 && response.data && response.data.msg === "User exists") {

@@ -10,6 +10,7 @@ export function Signup(){
 
 
     return <div className="flex flex-col   align-middle">
+        <div className=" mb-[40px] mt-[-40px] text-center font-bold text-3xl text-slate-800">SIGN UP</div>
         <input type="email" placeholder="Email"
         className=" p-2 w-[330px] border-slate-600 bg-slate-200 border-b-2 focus:outline-none text-lg "
         onChange={(e)=>{

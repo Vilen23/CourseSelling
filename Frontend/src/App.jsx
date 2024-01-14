@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link,Routes } from 'react-router-dom';
 import { UserSignin } from './Components/Signin';
 import { AdminSignin } from './Components/Admin';
 import { ShowCourse } from './Components/ShowCourse';
+import { AdminAddCourse } from './Components/AdminAddCourse';
 
 function App() {
   return (
@@ -18,10 +19,10 @@ function App() {
         </div>
         <div><ul className="flex text-white w-[350px] justify-between mr-48 cursor-pointer font-semibold text-lg">
               <li>
-                <Link to="/">Signup</Link>
+                <Link to="/">Sign up</Link>
               </li>
               <li>
-                <Link to="/Signin">Signin</Link>
+                <Link to="/Signin">Sign in</Link>
               </li>
               <li>
                 <Link to="/Admin">Admin</Link>
@@ -35,6 +36,7 @@ function App() {
         <Route path="/Signin" element={<Card comp={<UserSignin></UserSignin>}></Card>}></Route>
         <Route path="/Admin" element={<Card comp={<AdminSignin></AdminSignin>}></Card>}></Route>
         <Route path='/ShowCourse' element={<ShowCourse></ShowCourse>}></Route>
+        <Route path='/AdminAddCourse' element={<AdminAddCourse></AdminAddCourse>}></Route>
       </Routes>
    </>
   )
