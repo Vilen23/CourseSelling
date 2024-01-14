@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const {Info} = require('./Database')
+const {Info,Admin} = require('./Database')
 const {valid} = require('./Validation')
 const app = express();
 const bodyParser = require('body-parser')
@@ -34,7 +34,7 @@ app.post("/signup",async (req,res)=>{
     })
 })
 
-app.post("/signinuser", async (req, res) => {
+app.get("/signinuser", async (req, res) => {
     const { username, password } = req.body;
   
     try {
@@ -56,5 +56,46 @@ app.post("/signinuser", async (req, res) => {
       });
     }
   });
+
+  app.post("/adminsignup",async(req,res)=>{
+    const username = req.body.username;
+    const password = req.body.password;
+    const existingAdmin = await Admin.findOne({username:username})
+    if(existingAdmin){
+        res.status(400).json({
+            msg:"Admin already exists"
+        })
+        return
+    }else{
+        await Admin.create({
+            username,
+            password
+        })
+        res.status(200).json({
+            msg:"Admin created"
+        })
+    }
+  })
+  app.get("/adminlogin",async(req,res)=>{
+    const username = req.body.username
+    const password  = req.body.password
+    try {
+        const existingAdmin = await Admin.findOne({username:username,password:password})
+    if(existingAdmin){
+        res.status(200).json({
+            msg:"Admin exixts"
+        })
+        return
+    }
+    else{
+        res.status(400).json({
+            msg:"Admin does not exist"
+        })
+    }
+    } catch(error){
+        console.error('Error found:', error);
+        res.status(500)
+    }
+  })
 
 app.listen(3000)
