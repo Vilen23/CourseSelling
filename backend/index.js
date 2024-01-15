@@ -117,4 +117,10 @@ app.post("/signinuser", async (req, res) => {
     }
   })
 
+  app.get("/courses",async (req,res)=>{
+    const response = await Course.find({})
+    res.status(200).json({
+      courses:response
+    })
+  })
 app.listen(3000)
