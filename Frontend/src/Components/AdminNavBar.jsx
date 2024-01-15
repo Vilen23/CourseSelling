@@ -12,7 +12,7 @@ export function AdminNavbar() {
       <div>
         <ul className="flex text-white w-[200px] justify-between mr-[150px] cursor-pointer font-semibold text-lg">
           <li>
-            <Link to="/Signin">Courses</Link>
+            <Link to="/AdminCourses">Courses</Link>
           </li>
           <li>
             <Link to="/">Logout</Link>

@@ -39,12 +39,7 @@ export function UserSignin() {
             }
           );
 
-          if (
-            response.status === 200 &&
-            response.data &&
-            response.data.msg === "User exists"
-          ) {
-            // Set login state to true
+          if (response.status === 200) {
             setIsLoggedIn(true);
           } else {
             // Handle unsuccessful login
@@ -52,7 +47,7 @@ export function UserSignin() {
           }
         }}
       >
-        {isLoggedIn ? <Link to="/ShowCourse">Login</Link> : "Login"}
+        {isLoggedIn?<Link to="/ShowCourse">Login</Link> : "Login"}
       </button>
     </div>
   );

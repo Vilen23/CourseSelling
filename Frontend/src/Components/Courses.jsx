@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export function ShowCourse(){
+export function AdminCourses(){
     const [courses,setCourse] = useState([])
 
     useEffect(()=>{
@@ -23,7 +23,7 @@ export function ShowCourse(){
                     <p className='text-center font-bold text-[30px] w-[284.44px] leading-8 mt-4 ' >{course.title}</p>
                     <p className="text-center font-medium my-2 ">{course.price}</p>
                     <button className="bg-slate-700 font-semibold text-white  w-24 rounded-3xl 
-        py-2 self-center transform hover:scale-105 focus:scale-100  hover:bg-slate-800">Purchase</button>
+        py-2 self-center transform hover:scale-105 focus:scale-100  hover:bg-slate-800">Edit</button>
                     </div>
                 </div>
             })}
